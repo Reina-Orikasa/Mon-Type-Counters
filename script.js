@@ -35,7 +35,7 @@ function findCounter() {
 
   if (counterFound) {
     answer.innerHTML =
-      '<h3>' + capitalizedUserType + ' is weak against: <br></h3>' + goodType;
+      '<h4>' + capitalizedUserType + ' is weak against: </h4>' + goodType;
   } else {
     answer.innerHTML =
       goodType + ' Are you sure you spelled the type correctly?';
@@ -49,6 +49,9 @@ function setBackgroundColor(color) {
   document.getElementById('submit').style.backgroundColor = color;
 }
 
+// takes a parameter type, calculates the type counters
+// and returns the counters and the background color type
+// of the parameter.
 function calculateCounter(type) {
   let enteredType;
   let backgroundColor;
@@ -134,6 +137,15 @@ function calculateCounter(type) {
   return [enteredType, backgroundColor];
 }
 
+// Enter will click the button
+let input = document.getElementById('userType');
+input.addEventListener('keyup', (e) => {
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    document.getElementById('submit').click();
+  }
+});
+
 /*
     The MIT License (MIT)
 
@@ -168,12 +180,3 @@ typewriter
   .typeString('fAiRy')
   .pauseFor(1000)
   .start();
-
-// Enter will click the button
-let input = document.getElementById('userType');
-input.addEventListener('keyup', (e) => {
-  if (e.key === 'Enter') {
-    e.preventDefault();
-    document.getElementById('submit').click();
-  }
-});

@@ -22,12 +22,17 @@ h1 {
   font-size: 3rem;
 }
 
+h4 {
+  margin-bottom: -1px;
+}
+
 li {
   list-style: none;
 }
 
 hr {
   border: 1px solid white;
+  margin-bottom: 2rem;
 }
 
 .btn {
