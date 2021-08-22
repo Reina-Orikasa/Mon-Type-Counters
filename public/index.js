@@ -3,10 +3,10 @@ function findCounter() {
   countersToCounters.innerHTML = '';
   let userType = document.getElementById('userType').value.toLowerCase().trim();
 
+  userType = userType.replace(/[^A-Za-z]+/g, '');
+  // takes the first letter and capitalizes it
   let capitalizedUserType =
     userType.charAt(0).toUpperCase() + userType.slice(1);
-
-  capitalizedUserType = capitalizedUserType.replace(/[\W_]/gi, '');
 
   let counterFound;
   let [goodType, backgroundColor] = calculateCounter(capitalizedUserType);
@@ -23,22 +23,29 @@ function findCounter() {
   let answer = document.getElementById('counters');
 
   let arrayOfCounters = goodType.split(',');
-  arrayOfCounters.forEach((el) => {
-    countersToCounters.innerHTML +=
-      '<b>' +
-      el +
-      '</b> is weak against: ' +
-      '<b>' +
-      calculateCounter(el)[0] +
-      '</b><br>';
-  });
-
   if (counterFound) {
+    arrayOfCounters.forEach((el) => {
+      countersToCounters.innerHTML +=
+        '<div class="targetType">' +
+        '<b>' +
+        el +
+        '</b> is weak against: ' +
+        '<p><b>' +
+        calculateCounter(el)[0] +
+        '</b></p></div>';
+    });
+
     answer.innerHTML =
-      '<h4>' + capitalizedUserType + ' is weak against: </h4>' + goodType;
+      '<strong>' +
+      capitalizedUserType +
+      '</strong>' +
+      ' is weak against: ' +
+      '<br>' +
+      '<strong>' +
+      goodType +
+      '</strong>';
   } else {
-    answer.innerHTML =
-      goodType + ' Are you sure you spelled the type correctly?';
+    answer.innerHTML = goodType + ' Please check type spelling.';
   }
 }
 
@@ -147,22 +154,22 @@ input.addEventListener('keyup', (e) => {
 });
 
 /*
-    The MIT License (MIT)
-
-    Copyright (c) 2016-2017 Tameem Safi
-
-    Permission is hereby granted, free of charge, to any person obtaining a copy
-    of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is
-    furnished to do so, subject to the following conditions:
-
-    The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-*/
+      The MIT License (MIT)
+  
+      Copyright (c) 2016-2017 Tameem Safi
+  
+      Permission is hereby granted, free of charge, to any person obtaining a copy
+      of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is
+      furnished to do so, subject to the following conditions:
+  
+      The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+  
+      THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+      IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+      FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+      AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+      LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+  */
 
 var app = document.getElementById('typer');
 

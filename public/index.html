@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pkmn counters</title>
+    <script defer src="index.js"></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+      integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+  </head>
+  <body class="text-center mt-10 ml-6 mr-6">
+    <h1 class="text-6xl mb-6 font-semibold">Pkmn Type Counters</h1>
+    <label for="counterType" class="text-lg">
+      Please enter the type you want to counter:
+    </label>
+    <input
+      name="type"
+      type="text"
+      id="userType"
+      placeholder="Enter Type"
+      class="
+        border-2 border-black
+        text-center
+        p-5
+        rounded-lg
+        focus:ring-2 focus:ring-black focus:outline-none
+        w-full
+        text-2xl
+        mt-2
+      "
+    />
+    <p class="mt-1 mb-4">You can type <span id="typer"></span>for example.</p>
+    <button
+      type="button"
+      id="submit"
+      class="border-2 border-black p-3 rounded-md mb-4"
+      onclick="findCounter()"
+    >
+      Find Type Counter(s)
+    </button>
+
+    <div id="counters" class="mb-4 text-lg md:text-2xl"></div>
+    <hr />
+    <div
+      id="countersToCounters"
+      class="mt-4 text-sm md:text-lg grid grid-cols-2 gap-4 md:grid-cols-3"
+    ></div>
+  </body>
+</html>
