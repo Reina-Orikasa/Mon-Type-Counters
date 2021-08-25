@@ -6,14 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>pkmn counters</title>
     <script defer src="index.js"></script>
-
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
-      integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
     <link rel="stylesheet" href="styles.css" />
     <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
   </head>
@@ -28,21 +20,32 @@
       id="userType"
       placeholder="Enter Type"
       class="
-        border-2 border-black
+        border-2 border-purple-300
         text-center
         p-5
         rounded-lg
-        focus:ring-2 focus:ring-black focus:outline-none
+        focus:ring-2
+        focus:ring-purple-600
+        focus:outline-none
+        focus:border-purple-600
         w-full
         text-2xl
         mt-2
+        hover:shadow-lg hover:border-purple-400
       "
     />
     <p class="mt-1 mb-4">You can type <span id="typer"></span>for example.</p>
     <button
       type="button"
       id="submit"
-      class="border-2 border-black p-3 rounded-md mb-4"
+      class="
+        border-2 border-black
+        p-3
+        rounded-md
+        mb-4
+        hover:bg-purple-300
+        text-lg
+      "
       onclick="findCounter()"
     >
       Find Type Counter(s)
@@ -52,7 +55,7 @@
     <hr />
     <div
       id="countersToCounters"
-      class="mt-4 text-sm md:text-lg grid grid-cols-2 gap-4 md:grid-cols-3"
+      class="mt-4 mb-8 text-sm grid grid-cols-1 gap-4 md:text-lg md:grid-cols-2"
     ></div>
   </body>
 </html>
