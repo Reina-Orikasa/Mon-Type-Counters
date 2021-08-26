@@ -36,14 +36,14 @@ function findCounter() {
     });
 
     answer.innerHTML =
-      '<strong>' +
+      '<hr class="mb-4" /><strong>' +
       capitalizedUserType +
       '</strong>' +
       ' is weak against: ' +
       '<br>' +
       '<strong>' +
       goodType +
-      '</strong>';
+      '</strong> <hr class="mt-4" />';
   } else {
     answer.innerHTML = goodType + ' Please check type spelling.';
   }
@@ -53,7 +53,6 @@ function findCounter() {
 function setBackgroundColor(color) {
   document.body.style.transition = 'all 0.8s';
   document.body.style.backgroundColor = color;
-  document.getElementById('submit').style.backgroundColor = color;
 }
 
 // takes a parameter type, calculates the type counters
