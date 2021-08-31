@@ -149,27 +149,12 @@ input.addEventListener('keyup', (e) => {
   if (e.key === 'Enter') {
     e.preventDefault();
     document.getElementById('submit').click();
+    document.getElementById('userType').blur();
   }
 });
 
-/*
-      The MIT License (MIT)
-  
-      Copyright (c) 2016-2017 Tameem Safi
-  
-      Permission is hereby granted, free of charge, to any person obtaining a copy
-      of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is
-      furnished to do so, subject to the following conditions:
-  
-      The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-  
-      THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-      IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-      FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-      AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-      LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-  */
-
+// typewriterjs | MIT License
+// https://github.com/tameemsafi/typewriterjs/blob/master/LICENSE
 var app = document.getElementById('typer');
 
 var typewriter = new Typewriter(app, {
@@ -186,3 +171,76 @@ typewriter
   .typeString('fAiRy')
   .pauseFor(1000)
   .start();
+
+const autoCompleteJS = new autoComplete({
+  selector: '#userType',
+  placeHolder: 'Enter Type',
+  data: {
+    src: [
+      'Normal',
+      'Fire',
+      'Fighting',
+      'Water',
+      'Flying',
+      'Grass',
+      'Poison',
+      'Electric',
+      'Ground',
+      'Psychic',
+      'Rock',
+      'Ice',
+      'Bug',
+      'Dragon',
+      'Ghost',
+      'Dark',
+      'Steel',
+      'Fairy',
+    ],
+  },
+  resultsList: {
+    element: (list, data) => {
+      if (!data.results.length) {
+        // Create "No Results" message element
+        const message = document.createElement('div');
+        // Add class to the created element
+        message.setAttribute('class', 'no_result');
+        // Add message text content
+        message.innerHTML = `<span>Found No Results for "${data.query}"</span>`;
+        // Append message element to the results list
+        list.prepend(message);
+      }
+    },
+    noResults: true,
+  },
+  resultItem: {
+    element: (item, data) => {
+      item.classList.add = 'text-purple-400';
+    },
+    highlight: {
+      render: true,
+    },
+  },
+  submit: true,
+  events: {
+    input: {
+      selection: (event) => {
+        const selection = event.detail.selection.value;
+        autoCompleteJS.input.value = selection;
+      },
+    },
+  },
+});
+
+document
+  .querySelector('#userType')
+  .addEventListener('selection', function (event) {
+    let input = document.getElementById('userType');
+    // "event.detail" carries the autoComplete.js "feedback" object
+    document.getElementById('submit').click();
+    input.value = '';
+    input.blur();
+  });
+
+function clearInput() {
+  document.getElementById('userType').value = '';
+}

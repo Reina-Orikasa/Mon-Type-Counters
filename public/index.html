@@ -7,41 +7,67 @@
     <title>pkmn counters</title>
     <script defer src="index.js"></script>
     <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.6/dist/css/autoComplete.01.min.css"
+    />
+
     <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
   </head>
   <body class="text-center mt-10 ml-6 mr-6">
     <h1 class="text-6xl mb-6 font-semibold">Pkmn Type Counters</h1>
-    <label for="counterType" class="text-lg">
-      Please enter the type you want to counter:
-    </label>
+    <p class="md:text-lg">Please enter the type you want to counter:</p>
     <input
       name="type"
       type="text"
       id="userType"
       placeholder="Enter Type"
       class="
-        border-2 border-purple-300
         text-center
-        p-5
-        rounded-full
         focus:ring-2 focus:ring-purple-600 focus:outline-none
-        w-full
-        text-2xl
         mt-2
         hover:shadow-lg hover:border-purple-400
+        p-7
+        md:p-5
+        border-2 border-purple-400
       "
     />
+    <button
+      type="button"
+      onclick="clearInput()"
+      class="
+        hidden
+        bg-white
+        rounded-lg
+        md:rounded-l-none
+        border-2 border-gray-300
+        p-1.5
+        hover:bg-purple-600 hover:text-white
+        mt-2
+        md:-ml-1 md:inline
+        transition
+        duration-500
+        ease-in-out
+      "
+    >
+      Clear Input
+    </button>
     <p class="mt-1 mb-4">You can type <span id="typer"></span>for example.</p>
     <button
       type="button"
       id="submit"
       class="
+        bg-white
         border-2 border-black
         p-3
         rounded-md
         mb-4
-        hover:bg-purple-300
+        hover:bg-purple-600
         text-lg
+        hover:text-white
+        transition
+        duration-500
+        ease-in-out
       "
       onclick="findCounter()"
     >
@@ -53,5 +79,7 @@
       id="countersToCounters"
       class="mt-4 mb-8 text-sm grid grid-cols-1 gap-4 md:text-lg md:grid-cols-2"
     ></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.6/dist/autoComplete.min.js"></script>
   </body>
 </html>

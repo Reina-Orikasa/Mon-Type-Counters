@@ -13,5 +13,8 @@
     "postcss": "^8.3.6",
     "tailwindcss": "^2.2.7",
     "vite": "^2.5.1"
+  },
+  "dependencies": {
+    "@tarekraafat/autocomplete.js": "^10.2.6"
   }
 }
