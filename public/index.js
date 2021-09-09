@@ -172,6 +172,9 @@ typewriter
   .pauseFor(1000)
   .start();
 
+// autoComplete.js || Apache License 2.0
+// https://github.com/TarekRaafat/autoComplete.js/blob/master/LICENSE
+
 const autoCompleteJS = new autoComplete({
   selector: '#userType',
   placeHolder: 'Enter Type',
